@@ -1,0 +1,168 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navigation from "../../components/Navigation.astro";
+import Footer from "../../components/Footer.astro";
+import SpecSection from "../../components/SpecSection.astro";
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+export async function getStaticPaths() {
+    const ipc04m = {
+        title: "Купольный IP камера IPCAM IPC04M",
+        image: "/src/assets/ipc04m.jpeg",
+        specs: {
+            "Основные характеристики": {
+                Матрица: "4 Мп Progressive Scan CMOS",
+                Разрешение: "2688 × 1520",
+                Система: "PAL/NTSC",
+                "Частота кадров": "25/30 к/с (TVI), 25/30 к/с (AHD)",
+                Синхронизация: "Внутренняя",
+            },
+            "Оптические характеристики": {
+                Объектив: "2,7-13,5 мм моторизированный вариообъектив",
+                "Угол обзора":
+                    "Горизонтальный: 96,7°-29,7°, Вертикальный: 51,7°-16,7°",
+                Регулировка: "Поворот 360°, Наклон 90°, Вращение 360°",
+                Крепление: "Ф14",
+            },
+            "Функциональные возможности": {
+                WDR: "130 дБ",
+                "Ночное видение": "Smart ИК до 40 м",
+                Защита: "IP67",
+                "Температурный режим": "-40°C...+60°C",
+                "Обнаружение движения": "4 программируемые зоны",
+                "Маски приватности": "4 программируемые маски",
+            },
+        },
+    };
+
+    const ipc08 = {
+        title: "Цилиндрическая IP камера IPCAM IPC08M",
+        image: "/src/assets/ipc08.jpeg",
+        specs: {
+            "Основные параметры": {
+                Матрица: "8 Мп Progressive Scan CMOS",
+                Разрешение: "3840 × 2160 (4K Ultra HD)",
+                Система: "PAL/NTSC",
+                "Частота кадров": "25/30 к/с",
+                Синхронизация: "Внутренняя",
+            },
+            "Оптические характеристики": {
+                Объектив: "2,7-13,5 мм моторизированный вариообъектив",
+                "Угол обзора": "Диагональный: 114,3°-34°",
+                Регулировка: "Поворот 360°, Наклон 90°, Вращение 360°",
+                Крепление: "Ф14",
+            },
+            "Дополнительные функции": {
+                Подсветка: "EXIR до 60 м",
+                WDR: "130 дБ",
+                Защита: "IP67",
+                "Маски приватности": "4 программируемые зоны",
+                "Баланс белого": "ATW/MWB",
+                AGC: "Поддерживается",
+            },
+        },
+    };
+
+    const t400 = {
+        title: "Поворотная камера PTZ IPCAM T400",
+        image: "/src/assets/t400.jpeg",
+        specs: {
+            "Основные параметры": {
+                Разрешение: "4.0МР 2688×1520",
+                Битрейт: "32Кб/с~16Мб/с",
+                Кодек: "H.265+/H.265/H.264+/H.264/MJPEG",
+                "Частота кадров": "25 к/с",
+                Потоки: "3 независимых потока",
+            },
+            "Оптические характеристики": {
+                Объектив: "Варифокальный моторизированный f4.8~120мм",
+                Зум: "25x оптический + 25x цифровой",
+                "Угол обзора": "55°~2.4°",
+                Автофокус: "Поддерживается",
+            },
+            "Интерфейсы и подключение": {
+                Сеть: "RJ45 10/100Mbps",
+                Аудио: "1 вход/1 выход",
+                "Слот для карты": "MicroSD до 256GB",
+                "Сигнальные порты": "1 вход/1 выход",
+            },
+            "Функции управления": {
+                Вращение: "360° горизонтальное",
+                "Скорость вращения": "до 80°/сек",
+                Пресеты: "300 позиций",
+                Патрулирование: "8 маршрутов",
+                "3D позиционирование": "Поддерживается",
+            },
+            "Дополнительные возможности": {
+                Подсветка: "ИК до 150 м",
+                Защита: "IP66",
+                "Память позиций": "Сохраняет позиции при отключении питания",
+                "Маски приватности": "24 зоны",
+            },
+        },
+    };
+    return [
+        { params: { slug: "ipcam-ipc04m" }, props: { product: ipc04m } },
+        { params: { slug: "ipcam-ipc08m" }, props: { product: ipc08 } },
+        { params: { slug: "ptz-t400" }, props: { product: t400 } },
+    ];
+}
+
+const { product } = Astro.props;
+const images = import.meta.glob<{ default: ImageMetadata }>(
+    "/src/assets/*.{jpeg,jpg,png,gif}",
+);
+if (!images[product.image])
+    throw new Error(
+        `"${product.image}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`,
+    );
+---
+
+<Layout>
+    <Navigation />
+    <main class="container mx-auto px-4 py-16">
+        <div class="max-w-6xl mx-auto">
+            <h1
+                class="text-5xl font-bold mb-12 text-gray-900 font-display tracking-tight"
+            >
+                {product.title}
+            </h1>
+
+            <div class="grid md:grid-cols-2 gap-16 items-start">
+                <!-- Image Section -->
+                <div class="relative group">
+                    <div
+                        class="aspect-w-3 aspect-h-2 bg-gray-50 rounded-2xl overflow-hidden shadow-lg border-8 border-white"
+                    >
+                        <Image
+                            src={images[product.image]()}
+                            alt={product.title}
+                            class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
+                        />
+                    </div>
+                    <div
+                        class="absolute inset-0 rounded-2xl shadow-2xl pointer-events-none"
+                    >
+                    </div>
+                </div>
+
+                <!-- Specs Section -->
+                <div class="space-y-10">
+                    {
+                        Object.entries(product.specs).map(
+                            ([category, specs]) => (
+                                <SpecSection
+                                    title={category}
+                                    specs={specs}
+                                    class="bg-white rounded-xl shadow-sm p-8 border border-gray-100 hover:shadow-md transition-shadow"
+                                />
+                            ),
+                        )
+                    }
+                </div>
+            </div>
+        </div>
+    </main>
+    <Footer />
+</Layout>

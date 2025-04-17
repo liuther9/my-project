@@ -1,0 +1,45 @@
+---
+import Animation from "./Animation.astro";
+---
+
+<section class="py-16 bg-gray-100">
+    <div class="container mx-auto px-4">
+        <Animation animation="fadeInUp">
+            <h2 class="text-3xl font-bold text-center mb-12">
+                Почему выбирают IPCam?
+            </h2>
+        </Animation>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <Animation animation="fadeInUp" delay={200}>
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <div class="text-blue-600 text-4xl mb-4">🔒</div>
+                    <h3 class="text-xl font-bold mb-2">Надежная защита</h3>
+                    <p>
+                        256-bit encryption and secure cloud storage for your
+                        footage
+                    </p>
+                </div>
+            </Animation>
+
+            <Animation animation="fadeInUp" delay={400}>
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <div class="text-blue-600 text-4xl mb-4">📱</div>
+                    <h3 class="text-xl font-bold mb-2">Удаленный доступ</h3>
+                    <p>
+                        Следите за вашим имуществом из любой точки мира, чтобы
+                        всегда быть в курсе событий.
+                    </p>
+                </div>
+            </Animation>
+
+            <Animation animation="fadeInUp" delay={600}>
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <div class="text-blue-600 text-4xl mb-4">🎥</div>
+                    <h3 class="text-xl font-bold mb-2">Высокое разрешение</h3>
+                    <p>Кристально чистое изображение в день и ночь</p>
+                </div>
+            </Animation>
+        </div>
+    </div>
+</section>

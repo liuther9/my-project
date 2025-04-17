@@ -1,0 +1,57 @@
+---
+import Animation from "./Animation.astro";
+---
+
+<section class="py-16 bg-gray-100">
+    <div class="container mx-auto px-4">
+        <Animation animation="fadeInUp">
+            <h2 class="text-3xl font-bold text-center mb-12">
+                Надежные и безопасные решения
+            </h2>
+        </Animation>
+
+        <div class="grid md:grid-cols-4 gap-8 text-center">
+            <Animation animation="fadeInUp" delay={200}>
+                <div class="p-6 bg-white rounded-lg shadow-lg">
+                    <div class="text-blue-600 text-4xl font-bold mb-2">
+                        <span data-counter data-target="1000" data-suffix="+"
+                            >0</span
+                        >
+                    </div>
+                    <div class="text-gray-600">Систем установлено</div>
+                </div>
+            </Animation>
+
+            <Animation animation="fadeInUp" delay={400}>
+                <div class="p-6 bg-white rounded-lg shadow-lg">
+                    <div class="text-blue-600 text-4xl font-bold mb-2">
+                        <span data-counter data-target="50" data-suffix="+"
+                            >0</span
+                        >
+                    </div>
+                    <div class="text-gray-600">Довольных клиентов</div>
+                </div>
+            </Animation>
+
+            <Animation animation="fadeInUp" delay={600}>
+                <div class="p-6 bg-white rounded-lg shadow-lg">
+                    <div class="text-blue-600 text-4xl font-bold mb-2">
+                        <span data-counter data-target="24">0</span>/7
+                    </div>
+                    <div class="text-gray-600">Поддержка</div>
+                </div>
+            </Animation>
+
+            <Animation animation="fadeInUp" delay={800}>
+                <div class="p-6 bg-white rounded-lg shadow-lg">
+                    <div class="text-blue-600 text-4xl font-bold mb-2">
+                        <span data-counter data-target="5" data-suffix="+"
+                            >0</span
+                        >
+                    </div>
+                    <div class="text-gray-600">Лет опыта</div>
+                </div>
+            </Animation>
+        </div>
+    </div>
+</section>

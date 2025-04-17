@@ -1,0 +1,25 @@
+@import "tailwindcss";
+/* Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+body {
+    font-family: "Inter", sans-serif;
+}
+
+.font-display {
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+}
+
+/* Custom spec section styling */
+.spec-item {
+    @apply py-4 px-6 even:bg-gray-50/50 hover:bg-gray-50 transition-colors;
+}
+
+.spec-key {
+    @apply text-gray-600 font-medium text-sm;
+}
+
+.spec-value {
+    @apply text-gray-900 font-semibold text-right;
+}

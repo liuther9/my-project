@@ -9,7 +9,7 @@ import type { ImageMetadata } from "astro";
 export async function getStaticPaths() {
     const ipc04m = {
         title: "Купольный IP камера IPCAM IPC04M",
-        image: "/my-project/src/assets/ipc04m.jpeg",
+        image: "/src/assets/ipc04m.jpeg",
         specs: {
             "Основные характеристики": {
                 Матрица: "4 Мп Progressive Scan CMOS",
@@ -38,7 +38,7 @@ export async function getStaticPaths() {
 
     const ipc08 = {
         title: "Цилиндрическая IP камера IPCAM IPC08M",
-        image: "/my-project/src/assets/ipc08.jpeg",
+        image: "/src/assets/ipc08.jpeg",
         specs: {
             "Основные параметры": {
                 Матрица: "8 Мп Progressive Scan CMOS",
@@ -66,7 +66,7 @@ export async function getStaticPaths() {
 
     const t400 = {
         title: "Поворотная камера PTZ IPCAM T400",
-        image: "/my-project/src/assets/t400.jpeg",
+        image: "/src/assets/t400.jpeg",
         specs: {
             "Основные параметры": {
                 Разрешение: "4.0МР 2688×1520",
@@ -111,7 +111,7 @@ export async function getStaticPaths() {
 
 const { product } = Astro.props;
 const images = import.meta.glob<{ default: ImageMetadata }>(
-    "/my-project/src/assets/*.{jpeg,jpg,png,gif}",
+    "/src/assets/*.{jpeg,jpg,png,gif}",
 );
 if (!images[product.image])
     throw new Error(

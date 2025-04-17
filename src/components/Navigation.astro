@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import myImage from "../assets/logo.jpeg"; // Image is 1600x900
 ---
 
 <nav class="bg-gray-800 text-white p-4">
@@ -8,8 +9,8 @@ import { Image } from "astro:assets";
             href="/my-project/"
             class="flex gap-2 items-center text-2xl font-bold"
         >
-            <img
-                src="/src/assets/logo.jpeg"
+            <Image
+                src={myImage}
                 alt=""
                 width="50"
                 height="50"

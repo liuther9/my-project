@@ -8,5 +8,5 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss(), react()],
   },
-  site: "https://ipcamerasolutions.kz",
+  site: "https://www.ipcamerasolutions.kz",
 });

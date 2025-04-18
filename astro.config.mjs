@@ -8,6 +8,5 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss(), react()],
   },
-  site: "https://liuther9.github.io",
-  base: "/my-project/",
+  site: "https://ipcamerasolutions.kz",
 });
